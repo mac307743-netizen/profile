@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mac — Pixel Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root{
+  --bg:#101820;
+  --panel:#182733;
+  --ink:#071014;
+  --cream:#f6e7c8;
+  --yellow:#ffd84d;
+  --pink:#ff5c8a;
+  --cyan:#51e5ff;
+  --green:#75e06f;
+  --shadow:7px 7px 0 var(--ink);
+  --pixel-border:4px solid var(--ink);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px),
+    var(--bg);
+  background-size:16px 16px;
+  color:var(--cream);
+  font-family:'VT323',monospace;
+  font-size:22px;
+  line-height:1.2;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:var(--yellow);
+  border-bottom:var(--pixel-border);
+  color:var(--ink);
+}
+.nav{
+  min-height:72px;display:flex;align-items:center;justify-content:space-between;
+  gap:20px;
+}
+.logo{font-family:'Press Start 2P';font-size:17px}
+.nav-links{display:flex;gap:22px;font-size:22px;font-weight:bold}
+.nav-links a:hover{text-decoration:underline}
+.hero{padding:75px 0 55px}
+.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:45px;align-items:center}
+.kicker{
+  display:inline-block;background:var(--pink);color:var(--ink);
+  border:var(--pixel-border);box-shadow:var(--shadow);
+  padding:10px 13px;font-family:'Press Start 2P';font-size:10px;margin-bottom:25px;
+}
+h1{
+  font-family:'Press Start 2P';font-size:clamp(32px,6vw,70px);
+  line-height:1.18;color:var(--cream);text-shadow:6px 6px 0 var(--pink);
+  margin-bottom:25px;
+}
+.hero p{max-width:650px;font-size:28px;margin-bottom:30px}
+.buttons{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:560px}
+.btn{
+  display:flex;align-items:center;justify-content:center;min-height:58px;
+  padding:13px 18px;border:var(--pixel-border);box-shadow:var(--shadow);
+  background:var(--cyan);color:var(--ink);font-family:'Press Start 2P';font-size:10px;
+  text-align:center;transition:.12s transform,.12s box-shadow;
+}
+.btn:hover{transform:translate(4px,4px);box-shadow:3px 3px 0 var(--ink)}
+.btn.alt{background:var(--cream)}
+.avatar-card{
+  background:var(--yellow);border:var(--pixel-border);box-shadow:var(--shadow);
+  padding:18px;color:var(--ink);transform:rotate(2deg);
+}
+.avatar{
+  aspect-ratio:1/1;display:grid;place-items:center;background:var(--panel);
+  border:var(--pixel-border);overflow:hidden;
+}
+.pixel-person{width:56%;aspect-ratio:1;position:relative}
+.pixel-person:before{
+  content:"";position:absolute;inset:20% 18% 0;
+  background:var(--pink);box-shadow:
+  -12px 18px 0 var(--pink),12px 18px 0 var(--pink),
+  0 -18px 0 var(--pink),0 20px 0 var(--cream);
+}
+.pixel-person:after{
+  content:"";position:absolute;left:32%;top:36%;width:10px;height:10px;
+  background:var(--ink);box-shadow:45px 0 var(--ink),22px 25px 0 var(--ink);
+}
+.photo-label{font-family:'Press Start 2P';font-size:9px;padding:13px 0 2px;text-align:center}
+section{padding:65px 0}
+.section-title{
+  display:flex;align-items:center;gap:15px;margin-bottom:30px;
+  font-family:'Press Start 2P';font-size:20px;color:var(--yellow);
+}
+.section-title:after{content:"";height:5px;background:var(--yellow);flex:1}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.card{
+  background:var(--panel);border:var(--pixel-border);box-shadow:var(--shadow);
+  padding:25px;
+}
+.card h3{font-family:'Press Start 2P';font-size:13px;color:var(--cyan);margin-bottom:18px}
+.card p{font-size:26px}
+.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.skill{background:var(--green);color:var(--ink);border:3px solid var(--ink);padding:7px 11px;font-weight:bold}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.project{background:var(--cream);color:var(--ink);border:var(--pixel-border);box-shadow:var(--shadow);padding:14px}
+.project-art{
+  height:170px;background:var(--pink);border:3px solid var(--ink);
+  display:grid;place-items:center;margin-bottom:18px;position:relative;overflow:hidden;
+}
+.project-art span{font-family:'Press Start 2P';font-size:12px;text-align:center;line-height:1.8}
+.project:nth-child(2) .project-art{background:var(--cyan)}
+.project:nth-child(3) .project-art{background:var(--green)}
+.project h3{font-family:'Press Start 2P';font-size:12px;margin-bottom:10px}
+.project p{font-size:23px;margin-bottom:16px}
+.tags{display:flex;gap:7px;flex-wrap:wrap}
+.tags span{background:var(--ink);color:var(--cream);padding:4px 8px;font-size:17px}
+.timeline{display:grid;gap:15px}
+.timeline-item{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:start}
+.year{background:var(--yellow);color:var(--ink);border:3px solid var(--ink);padding:8px;text-align:center;font-weight:bold}
+.contact{
+  background:var(--pink);color:var(--ink);border:var(--pixel-border);
+  box-shadow:var(--shadow);padding:35px;text-align:center;
+}
+.contact h2{font-family:'Press Start 2P';font-size:22px;line-height:1.6;margin-bottom:15px}
+.contact p{font-size:27px;margin-bottom:22px}
+.contact .buttons{margin:auto}
+footer{padding:35px 0 55px;text-align:center;color:#aab8bd;font-size:20px}
+@media(max-width:800px){
+  .nav{min-height:62px}.nav-links{gap:12px;font-size:19px}
+  .hero{padding-top:50px}.hero-grid,.about-grid{grid-template-columns:1fr}
+  .hero-grid{gap:35px}.avatar-card{max-width:420px;margin:auto}
+  .projects{grid-template-columns:1fr}
+  .project-art{height:145px}
+}
+@media(max-width:520px){
+  body{font-size:20px}.container{width:90%}
+  .logo{font-size:12px}.nav-links a:nth-child(2){display:none}
+  h1{font-size:31px;text-shadow:4px 4px 0 var(--pink)}
+  .hero p{font-size:25px}
+  .buttons{grid-template-columns:1fr;max-width:none}
+  .btn{width:100%;min-height:60px}
+  section{padding:48px 0}
+  .section-title{font-size:14px}
+  .card{padding:19px}.card p{font-size:24px}
+  .timeline-item{grid-template-columns:1fr;gap:8px}
+  .contact{padding:25px 17px}.contact h2{font-size:17px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">MAC.EXE</a>
+    <nav class="nav-links">
+      <a href="#about">ABOUT</a><a href="#projects">PROJECTS</a><a href="#contact">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="kicker">PLAYER 01 · SOFTWARE ENGINEERING STUDENT</span>
+      <h1>HI, I'M MAC.</h1>
+      <p>I build things, break things, learn how they work, and turn ideas into digital experiences.</p>
+      <div class="buttons">
+        <a class="btn" href="#projects">VIEW PROJECTS</a>
+        <a class="btn alt" href="#contact">CONTACT ME</a>
+      </div>
+    </div>
+    <div class="avatar-card">
+      <div class="avatar" aria-label="Profile photo placeholder">
+        <div class="pixel-person"></div>
+      </div>
+      <div class="photo-label">INSERT PROFILE PHOTO</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+<div class="container">
+  <div class="section-title">ABOUT_ME</div>
+  <div class="about-grid">
+    <div class="card">
+      <h3>WHO AM I?</h3>
+      <p>I'm Mac, a first-year software engineering student exploring web development, programming, UI/UX and creative technology.</p>
+      <div class="skills">
+        <span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">JAVASCRIPT</span>
+        <span class="skill">PYTHON</span><span class="skill">UI/UX</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>MY QUEST</h3>
+      <div class="timeline">
+        <div class="timeline-item"><div class="year">NOW</div><div>Learning the foundations of software engineering.</div></div>
+        <div class="timeline-item"><div class="year">NEXT</div><div>Building useful projects and improving my design skills.</div></div>
+        <div class="timeline-item"><div class="year">GOAL</div><div>Become a developer who can design and build great products.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+  <div class="section-title">SELECTED_PROJECTS</div>
+  <div class="projects">
+    <article class="project">
+      <div class="project-art"><span>PIXEL<br>WEATHER</span></div>
+      <h3>PIXEL WEATHER</h3>
+      <p>A playful weather dashboard designed around a retro game interface.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+    </article>
+    <article class="project">
+      <div class="project-art"><span>STUDY<br>QUEST</span></div>
+      <h3>STUDY QUEST</h3>
+      <p>A student productivity concept that turns study sessions into game levels.</p>
+      <div class="tags"><span>UI/UX</span><span>FIGMA</span></div>
+    </article>
+    <article class="project">
+      <div class="project-art"><span>MY FIRST<br>APP</span></div>
+      <h3>FIRST APP</h3>
+      <p>A beginner-friendly application created while learning programming fundamentals.</p>
+      <div class="tags"><span>PYTHON</span><span>LOGIC</span></div>
+    </article>
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+  <div class="contact">
+    <h2>READY PLAYER TWO?</h2>
+    <p>Have a project, idea, or just want to say hello?</p>
+    <div class="buttons">
+      <a class="btn" href="mailto:hello@mac.dev">EMAIL ME</a>
+      <a class="btn alt" href="https://github.com/" target="_blank">GITHUB</a>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="container">© 2026 MAC · BUILT WITH CODE &amp; PIXELS</div>
+</footer>
+</body>
+</html>
